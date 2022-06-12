@@ -1,0 +1,11 @@
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\redemptionercs.exe
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\appsettings.Development.json
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\appsettings.json
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\redemptionercs.dll
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\redemptionercs.deps.json
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\redemptionercs.runtimeconfig.json
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\redemptionercs.pdb
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\Microsoft.OpenApi.dll
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Vinay P\Documents\GitHub\redemptionercs\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll

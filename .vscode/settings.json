@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net6.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/35e158f6-c62f-4777-9f06-76590a652f0e/microsoft.web/sites/subscriptions/35e158f6-c62f-4777-9f06-76590a652f0e/resourceGroups/DefaultResourceGroup-null/providers/Microsoft.Web/sites/redemptionercs"
+}
