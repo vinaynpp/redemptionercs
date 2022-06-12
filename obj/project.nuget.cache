@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "5QfcLdFpc5oEmeGVEEwSDJPzkeEb7Qfx/OlEEqqBUVZ1loUy+qCUMYFttQkfQl8hL/fjUeat6TtrHNojOGk4Pw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vinay P\\Documents\\GitHub\\redemptionercs\\redemptionercs.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vinay P\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Vinay P\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Vinay P\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinay P\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinay P\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinay P\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
