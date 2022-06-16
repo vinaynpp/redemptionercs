@@ -1,52 +1,52 @@
 using redemptionercs.Models;
 
-namespace redemptionercs.Services
-{
-    public static class FilesService
-    {
-        static List<Files> Folder { get; }
-        static int nextId = 3;
-        static FilesService()
-        {
-            Folder = new List<Files>
-            {
-                new Files { Id = 1, Name = "File1", Path = "C:\\File1.txt", Extension = "txt" },
-                new Files { Id = 2, Name = "File2", Path = "C:\\File2.txt", Extension = "txt" },
-            };
-        }
-        public static List<Files> GetAll()
-        {
-            return Folder;
-        }
-        public static Files? GetFile(int id)
-        {
-            return Folder.FirstOrDefault(f => f.Id == id);
-        }
-        public static void AddFile(Files file)
-        {
-            file.Id = nextId++;
-            Folder.Add(file);
-        }
-        public static void UpdateFile(Files file)
-        {
-            var oldFile = GetFile(file.Id);
-            if (oldFile == null)
-            {
-                throw new Exception("File not found");
-            }
-            oldFile.Name = file.Name;
-            oldFile.Path = file.Path;
-            oldFile.Extension = file.Extension;
-        }
-        public static void DeleteFile(int id)
-        {
-            var file = GetFile(id);
-            if (file == null)
-            {
-                throw new Exception("File not found");
-            }
-            Folder.Remove(file);
-        }
+// namespace redemptionercs.Services
+// {
+//     public static class TilesService
+//     {
+//         static List<Tiles> Folder { get; }
+//         static int nextId = 3;
+//         static TilesService()
+//         {
+//             Folder = new List<Tiles>
+//             {
+//                 new Tiles { Id = 1, Name = "Tile1", Path = "C:\\Tile1.txt", Extension = "txt" },
+//                 new Tiles { Id = 2, Name = "Tile2", Path = "C:\\Tile2.txt", Extension = "txt" },
+//             };
+//         }
+//         public static List<Tiles> GetAll()
+//         {
+//             return Folder;
+//         }
+//         public static Tiles? GetTile(int id)
+//         {
+//             return Folder.FirstOrDefault(f => f.Id == id);
+//         }
+//         public static void AddTile(Tiles tile)
+//         {
+//             tile.Id = nextId++;
+//             Folder.Add(tile);
+//         }
+//         public static void UpdateTile(Tiles tile)
+//         {
+//             var oldTile = GetTile(tile.Id);
+//             if (oldTile == null)
+//             {
+//                 throw new Exception("tile not found");
+//             }
+//             oldTile.Name = tile.Name;
+//             oldTile.Path = tile.Path;
+//             oldTile.Extension = tile.Extension;
+//         }
+//         public static void DeleteTile(int id)
+//         {
+//             var tile = GetTile(id);
+//             if (tile == null)
+//             {
+//                 throw new Exception("tile not found");
+//             }
+//             Folder.Remove(tile);
+//         }
 
-    }
-}
+//     }
+// }

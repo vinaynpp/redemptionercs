@@ -1,67 +1,114 @@
 using redemptionercs.Models;
-using redemptionercs.Services;
+// using redemptionercs.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace redemptionercs.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class FileController : ControllerBase
+public class TileController : ControllerBase
 {
-    public FileController()
-    {
+    private readonly TileContext _context;
 
+    private readonly ILogger<TileController> _logger;
+
+    public TileController(TileContext context,ILogger<TileController> logger)
+    {
+        _context = context;
+        _logger = logger;
     }
-            // GET all action
+        // GET all action
     [HttpGet]
-    public ActionResult<List<Files>> GetAll() => FilesService.GetAll();
+    public async Task<ActionResult<IEnumerable<Tiles>>> GetTiles()
+        {
+            return await _context.Tiles.ToListAsync();
+        }
     
 
         // GET by Id action
     [HttpGet("{id}")]   
-    public ActionResult<Files> GetFile(int id)
-    {
-        var file = FilesService.GetFile(id);
-        if (file == null)
+    public async Task<ActionResult<Tiles>> GetProduct(long id)
         {
-            return NotFound();
+            var Tile = await _context.Tiles.FindAsync(id);
+
+            if (Tile == null)
+            {
+                return NotFound();
+            }
+
+            return Tile;
         }
-        return file;
-    }
-    
 
-    // POST action
-    [HttpPost]
-    public ActionResult<Files> CreateFile(Files file)
-    {
-        FilesService.AddFile(file);
-        return CreatedAtRoute("GetFile", new { id = file.Id }, file);
-    }
-    
-
-    // PUT action
-    [HttpPut("{id}")]
-    public IActionResult UpdateFile(int id, Files file)
-    {
-        var oldFile = FilesService.GetFile(id);
-        if (oldFile == null)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutProduct(long id, Tiles Tile)
         {
-            return NotFound();
-        }
-        FilesService.UpdateFile(file);
-        return NoContent();
-    }
+            if (id != Tile.Id)
+            {
+                return BadRequest();
+            }
 
-    // DELETE action
-    [HttpDelete("{id}")]
-    public IActionResult DeleteFile(int id)
-    {
-        var file = FilesService.GetFile(id);
-        if (file == null)
-        {
-            return NotFound();
+            _context.Entry(Tile).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TileExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
-        FilesService.DeleteFile(id);
-        return NoContent();
-    }
+
+        private bool TileExists(long id)
+        {
+            return _context.Tiles.Any(e => e.Id == id);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Tiles>> PostProduct(Tiles Tile)
+        {
+            _context.Tiles.Add(Tile);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (TileExists(Tile.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return CreatedAtAction("GetProduct", new { id = Tile.Id }, Tile);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(long id)
+        {
+            var product = await _context.Tiles.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _context.Tiles.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
 }
